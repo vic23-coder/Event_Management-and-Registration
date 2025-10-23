@@ -64,8 +64,12 @@ const User = sequelize.define(
                 }
             },
         },
-    }
-);
+        indexes: [
+            { unique: true, fields: ["user_uuid"] },
+            { unique: true, fields: ["username"] },
+            { unique: true, fields: ["email"] },
+        ],
+    });
 
 User.prototype.validatePassword = async function (password) {
     return await bcrypt.compare(password, this.password);

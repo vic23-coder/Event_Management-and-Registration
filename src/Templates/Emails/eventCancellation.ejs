@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Welcome to Event Hub</title>
+    <title>Event Cancellation Notice</title>
     <style>
       body {
         font-family: Arial, sans-serif;
-        background-color: #f9f9f9;
+        background-color: #fff3f3;
         color: #333;
         text-align: center;
         padding: 40px;
@@ -16,11 +16,11 @@
         padding: 30px;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        max-width: 500px;
+        max-width: 600px;
         margin: auto;
       }
-      h1 {
-        color: #0066cc;
+      h2 {
+        color: #c0392b;
       }
       p {
         line-height: 1.6;
@@ -29,11 +29,12 @@
   </head>
   <body>
     <div class="container">
-      <h1>Welcome to Event Hub </h1>
-      <p>Hi <strong><%= userName %></strong>,</p>
-      <p>We’re excited to have you on board! Your Event Hub account has been created successfully.</p>
-      <p>Explore exciting events, register easily, and stay updated all in one place.</p>
+      <h2>Important Update: <%= eventName %> Cancelled</h2>
+      <p>We regret to inform you that <strong><%= eventName %></strong> has been cancelled due to <%= reason %>.</p>
+      <p>We apologize for the inconvenience and appreciate your understanding.</p>
+      <p>We’ll notify you if the event is rescheduled.</p>
       <p>— The Event Hub Team</p>
     </div>
   </body>
 </html>
+

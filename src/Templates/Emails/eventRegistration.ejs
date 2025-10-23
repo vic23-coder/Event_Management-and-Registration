@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Welcome to Event Hub</title>
+    <title>Event Registration Confirmation</title>
     <style>
       body {
         font-family: Arial, sans-serif;
-        background-color: #f9f9f9;
+        background-color: #f4f6f8;
         color: #333;
         text-align: center;
         padding: 40px;
@@ -16,11 +16,11 @@
         padding: 30px;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        max-width: 500px;
+        max-width: 600px;
         margin: auto;
       }
-      h1 {
-        color: #0066cc;
+      h2 {
+        color: #2e86de;
       }
       p {
         line-height: 1.6;
@@ -29,10 +29,12 @@
   </head>
   <body>
     <div class="container">
-      <h1>Welcome to Event Hub </h1>
-      <p>Hi <strong><%= userName %></strong>,</p>
-      <p>We’re excited to have you on board! Your Event Hub account has been created successfully.</p>
-      <p>Explore exciting events, register easily, and stay updated all in one place.</p>
+      <h2>You're Registered for <%= eventName %> </h2>
+      <p>Hi there,</p>
+      <p>Thank you for registering for <strong><%= eventName %></strong>.</p>
+      <p><strong>Date:</strong> <%= eventDate %></p>
+      <p><strong>Location:</strong> <%= eventLocation %></p>
+      <p>We look forward to seeing you there!</p>
       <p>— The Event Hub Team</p>
     </div>
   </body>

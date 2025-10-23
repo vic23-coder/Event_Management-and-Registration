@@ -5,9 +5,10 @@ const Registration = sequelize.define("Registration", {
     registration_uuid: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
+        primaryKey: true,
         
     },
-    user_id: {
+    user_uuid: {
         type: DataTypes.UUID,
         allowNull: false,
         references: {
@@ -17,7 +18,7 @@ const Registration = sequelize.define("Registration", {
         onUpdate: "CASCADE",
         onDelete: "CASCADE",
     },
-    event_id: {
+    event_uuid: {
         type: DataTypes.UUID,
         allowNull: false,
         references: {
