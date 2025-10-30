@@ -1,7 +1,7 @@
 import express from "express";
 import config from "./config/index.js";
 import  { connectDB } from "./config/db.js";
-import models from "./models/index.js";
+// models imported as needed; removed unused default import to match exports
 import errorHandler from "./middlewares/errorHandler.js";
 import authRoutes from "./routes/auth.js";
 import eventRoutes from "./routes/eventRoutes.js";

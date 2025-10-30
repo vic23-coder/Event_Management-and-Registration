@@ -49,6 +49,11 @@ export async function sendUserRegistrationEmail(userEmail, userName) {
   );
 }
 
+export async function sendWelcomeEmail(userEmail, userName) {
+  // alias for backward compatibility with controllers that call sendWelcomeEmail
+  return sendUserRegistrationEmail(userEmail, userName);
+}
+
 
 export async function sendEventRegistrationEmail(userEmail, eventName, eventDate, eventLocation) {
   const htmlContent = await renderTemplate("eventRegistration", {
@@ -80,6 +85,7 @@ export default {
   renderTemplate,
   sendEmail,
   sendUserRegistrationEmail,
+  sendWelcomeEmail,
   sendEventRegistrationEmail,
   sendEventCancellationEmail,
 };
