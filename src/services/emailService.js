@@ -19,10 +19,9 @@ const transporter = nodemailer.createTransport({
 });
 
 export async function renderTemplate(templateName, payload = {}) {
-  const file = path.join(__dirname, "..", "templates", `${templateName}.ejs`);
+  const file = path.join(__dirname, "..", "Templates", "Emails", `${templateName}.ejs`);
   return ejs.renderFile(file, payload);
 }
-
 
 export async function sendEmail(to, subject, htmlContent) {
   const message = {

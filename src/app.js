@@ -10,9 +10,11 @@ import registrationRoutes from "./routes/registrationRoutes.js";
 // Initialize Express app
 const app = express();
 
+
 // Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 
 // Health check route (to test server)
 app.get("/api/health", (req, res) => {
@@ -28,6 +30,7 @@ app.use("/api/registrations", registrationRoutes); // user registers/cancels eve
 app.use((req, res, next) => {
   res.status(404).json({ success: false, message: "Route does not exist" });
 });
+
 
 // Error handler middleware
 app.use(errorHandler);
