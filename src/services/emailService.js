@@ -23,13 +23,17 @@ export async function renderTemplate(templateName, payload = {}) {
   return ejs.renderFile(file, payload);
 }
 
-export async function sendEmail(to, subject, htmlContent) {
+export async function sendEmail(to, subject, htmlContent, text = "") {
   const message = {
     from: "Event Hub <noreply@eventhub.com>",
     to,
     subject,
     html: htmlContent,
   };
+
+  if (text) {
+    message.text = text;
+  }
 
   try {
     await transporter.sendMail(message);
@@ -40,7 +44,7 @@ export async function sendEmail(to, subject, htmlContent) {
 
 
 export async function sendUserRegistrationEmail(userEmail, userName) {
-  const htmlContent = await renderTemplate("userRegistration", { userName });
+  const htmlContent = await renderTemplate("userRegistration", { username: userName });
   await sendEmail(
     userEmail,
     "Welcome to Event Hub!",
