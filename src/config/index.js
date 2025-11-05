@@ -21,5 +21,7 @@ export default {
   JWT_SECRET: process.env.JWT_SECRET || "supersecretkey",
   REDIS_TTL: Number(process.env.REDIS_TTL || 300),
   REDIS_URL: process.env.REDIS_URL || "redis://localhost:6379",
+  JWT_SECRET: process.env.JWT_SECRET || "supersecretkey",
+  JWT_EXPIRES_IN: Number(process.env.JWT_EXPIRES_IN) || 7200,
 };
     

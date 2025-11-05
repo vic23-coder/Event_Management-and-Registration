@@ -1,57 +1,88 @@
-import express from "express";
-import {
-  registerUser,
-  loginUser,
-  userProfile,
-} from "../controllers/authcontroller.js";
-import {
-  registrationValidator,
-  loginValidator,
-} from "../utils/Validators.js";
-import validationMiddleware from "../middlewares/ValidatorMiddleware.js";
-import authMiddleware from "../middlewares/authMiddleware.js";
+import jwt from "jsonwebtoken";
+import bcrypt from "bcryptjs";
+import config from "../config/index.js";
 
-import {
-  createNewEvent,
-  getAllEvents,
-  cancelEvent,
-  registerUserForEvent,
-} from "../controllers/eventcontroller.js";
+/**
+ * Generate access token for a user
+ */
+async function generateToken(user) {
+  try {
+    const payload = {
+      id: user.user_uuid,
+      username: user.username,
+      role: user.role,
+    };
 
-const router = express.Router();
+    return jwt.sign(payload, config.JWT_SECRET, {
+      expiresIn: config.JWT_EXPIRES_IN || "1h",
+    });
+  } catch (error) {
+    throw new Error("Error generating access token");
+  }
+}
 
-//
-// USER AUTH ROUTES
-//
+/**
+ * Verify access token
+ */
+async function verifyToken(token) {
+  try {
+    return jwt.verify(token, config.JWT_SECRET);
+  } catch (error) {
+    throw new Error("Invalid or expired access token");
+  }
+}
 
-// Register a new user
-router.post(
-  "/register",
-  registrationValidator,
-  validationMiddleware,
-  registerUser
-);
+/**
+ * Generate refresh token
+ */
+async function generateRefreshToken(user) {
+  try {
+    const payload = {
+      id: user.user_uuid,
+      username: user.username,
+      role: user.role,
+      type: "refresh",
+    };
 
-// Login user
-router.post("/login", loginValidator, validationMiddleware, loginUser);
+    return jwt.sign(payload, config.JWT_REFRESH_SECRET || config.JWT_SECRET, {
+      expiresIn: config.JWT_REFRESH_EXPIRES_IN || "7d",
+    });
+  } catch (error) {
+    throw new Error("Error generating refresh token");
+  }
+}
 
-// View user profile (protected route)
-router.get("/profile", authMiddleware, userProfile);
+/**
+ * Verify refresh token
+ */
+async function verifyRefreshToken(token) {
+  try {
+    return jwt.verify(token, config.JWT_REFRESH_SECRET || config.JWT_SECRET);
+  } catch (error) {
+    throw new Error("Invalid or expired refresh token");
+  }
+}
 
-//
-// EVENT MANAGEMENT ROUTES
-//
+/**
+ * Hash a user password
+ */
+async function hashPassword(password) {
+  const salt = await bcrypt.genSalt(10);
+  return bcrypt.hash(password, salt);
+}
 
-// Create a new event (only logged-in users)
-router.post("/events", authMiddleware, createNewEvent);
+/**
+ * Compare password with hashed version
+ */
+async function comparePassword(password, hashedPassword) {
+  return bcrypt.compare(password, hashedPassword);
+}
 
-// Get all available events
-router.get("/events", getAllEvents);
-
-// Cancel an event (event creator or admin only)
-router.put("/events/:eventId/cancel", authMiddleware, cancelEvent);
-
-// Register logged-in user for a specific event
-router.post("/events/:eventId/register", authMiddleware, registerUserForEvent);
-
-export default router;
+export default {
+  generateToken,
+  verifyToken,
+  generateRefreshToken,
+  verifyRefreshToken,
+  hashPassword,
+  comparePassword,
+};
