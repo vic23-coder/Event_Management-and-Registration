@@ -37,27 +37,18 @@ async function createUser(userData) {
 
 
 async function logUserIntoApp(loginCredentials) {
-  const user = await User.findOne({ where: { email: loginCredentials.email }, raw: false });
+  const user = await User.findOne({ 
+  where: { email: loginCredentials.email },
+  mapToModel: true, // ensures it returns a Sequelize instance
+  model: User
+});
 
-if (!user) throw new Error("Invalid Email or Password");
-
-//Ensure user instance has verifyPassword
-if (typeof user.verifyPassword !== "function") {
-  // Reload it as a Sequelize instance (safety fallback)
-  const reloadedUser = await User.build(user.dataValues, { isNewRecord: false });
-  const isPasswordValid = await reloadedUser.verifyPassword(loginCredentials.password);
-  if (!isPasswordValid) throw new Error("Invalid Email or Password");
-} else {
   const isPasswordValid = await user.verifyPassword(loginCredentials.password);
-  if (!isPasswordValid) throw new Error("Invalid Email or Password");
-}
-
   if (!isPasswordValid) throw new Error("Invalid Email or Password");
 
   const token = await utils.generateToken(user);
   const refreshToken = await utils.generateRefreshToken(user, token);
 
-  // Send login email notification
   await sendLoginNotification(user);
 
   return {

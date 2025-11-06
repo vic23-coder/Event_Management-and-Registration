@@ -38,6 +38,8 @@ const User = sequelize.define(
             allowNull: false,
             defaultValue: "user",
         },
+        //   profilePicture: DataTypes.STRING,
+    
     },
     {
         timestamps: true,
@@ -71,7 +73,7 @@ const User = sequelize.define(
         ],
     });
 
-User.prototype.validatePassword = async function (password) {
+User.prototype.verifyPassword = async function (password) {
     return await bcrypt.compare(password, this.password);
 }
 
