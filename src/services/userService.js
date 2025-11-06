@@ -141,11 +141,12 @@ async function updateUserProfile(userUUID, requestData) {
 async function sendLoginNotification(user) {
   const html = await renderTemplate("login-notification", {
     username: user.username,
-    email: user.email,
     loginTime: new Date().toLocaleString(),
+    location: "Unknown location",  // Default value
+    device: "Unknown device"       // Default value
   });
 
-  const text = `Hello ${user.username},\n\nYour account was accessed at ${new Date().toLocaleString()}. If this wasn’t you, please contact support immediately.`;
+  const text = `Hello ${user.username},\n\nYour account was accessed at ${new Date().toLocaleString()}. If this wasn't you, please contact support immediately.`;
 
   await sendEmail(user.email, "Login Alert", html, text);
 }

@@ -52,9 +52,18 @@ export async function cancelEventRegistration(user_uuid, event_uuid) {
   return true;
 }
 
+
+export async function getUserRegistrations(user_uuid) {
+  return await Registration.findAll({
+    where: { user_uuid },
+    include: [Event]
+  });
+}
+
 export default {
   createEvent,
   getAllEvents,
   registerForEvent,
   cancelEventRegistration,
+  getUserRegistrations,
 };

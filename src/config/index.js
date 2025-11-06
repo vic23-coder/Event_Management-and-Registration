@@ -18,10 +18,9 @@ export default {
   SMTP_SECURE: process.env.SMTP_SECURE === "true" || false,
   TYPICODE_BASE_URL: process.env.TYPICODE_BASE_URL || "https://jsonplaceholder.typicode.com/users",
   TYPICODE_BASE_API_KEY: process.env.TYPICODE_BASE_API_KEY || "your_api_key_here",
-  JWT_SECRET: process.env.JWT_SECRET || "supersecretkey",
   REDIS_TTL: Number(process.env.REDIS_TTL || 300),
   REDIS_URL: process.env.REDIS_URL || "redis://localhost:6379",
-  JWT_SECRET: process.env.JWT_SECRET || "supersecretkey",
+  JWT_SECRET: process.env.JWT_SECRET || "your-super-long-secret-key-here-at-least-32-characters",
   JWT_EXPIRES_IN: Number(process.env.JWT_EXPIRES_IN) || 7200,
 };
     
