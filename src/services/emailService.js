@@ -44,7 +44,7 @@ export async function sendEmail(to, subject, htmlContent, text = "") {
 
 
 export async function sendUserRegistrationEmail(userEmail, userName) {
-  const htmlContent = await renderTemplate("userRegistration", { username: userName });
+  const htmlContent = await renderTemplate("userRegistration", { userName: userName });
   await sendEmail(
     userEmail,
     "Welcome to Event Hub!",

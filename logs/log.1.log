@@ -20,3 +20,33 @@
 {"level":50,"time":1762419659938,"pid":21592,"hostname":"DESKTOP-0OGI8LM","message":"Email already exists","statusCode":400,"data":null}
 {"level":50,"time":1762419864806,"pid":2224,"hostname":"DESKTOP-0OGI8LM","message":"Unauthorized: Invalid token","statusCode":401,"data":null}
 {"level":50,"time":1762420167841,"pid":16444,"hostname":"DESKTOP-0OGI8LM","message":"Unauthorized: Invalid token","statusCode":401,"data":null}
+{"level":50,"time":1762436020793,"pid":23812,"hostname":"DESKTOP-0OGI8LM","message":"Unauthorized: Invalid token","statusCode":401,"data":null}
+{"level":50,"time":1762436547494,"pid":18464,"hostname":"DESKTOP-0OGI8LM","message":"Unauthorized: Invalid token","statusCode":401,"data":null}
+{"level":50,"time":1762436724382,"pid":18464,"hostname":"DESKTOP-0OGI8LM","message":"Email already exists","statusCode":400,"data":null}
+{"level":50,"time":1762436760510,"pid":18464,"hostname":"DESKTOP-0OGI8LM","message":"Email already exists","statusCode":400,"data":null}
+{"level":50,"time":1762436783762,"pid":18464,"hostname":"DESKTOP-0OGI8LM","message":"Unauthorized: Invalid token","statusCode":401,"data":null}
+{"level":50,"time":1762437010583,"pid":12212,"hostname":"DESKTOP-0OGI8LM","message":"Email already exists","statusCode":400,"data":null}
+{"level":50,"time":1762437023397,"pid":12212,"hostname":"DESKTOP-0OGI8LM","message":"Unauthorized: Invalid token","statusCode":401,"data":null}
+{"level":50,"time":1762437412476,"pid":12212,"hostname":"DESKTOP-0OGI8LM","message":"Cannot destructure property 'name' of 'req.body' as it is undefined.","statusCode":400,"data":null}
+{"level":50,"time":1762437725917,"pid":788,"hostname":"DESKTOP-0OGI8LM","message":"Cannot destructure property 'name' of 'req.body' as it is undefined.","statusCode":400,"data":null}
+{"level":50,"time":1762437741420,"pid":788,"hostname":"DESKTOP-0OGI8LM","message":"Unauthorized: Invalid token","statusCode":401,"data":null}
+{"level":50,"time":1762437746165,"pid":788,"hostname":"DESKTOP-0OGI8LM","message":"Unauthorized: Invalid token","statusCode":401,"data":null}
+{"level":50,"time":1762437765013,"pid":788,"hostname":"DESKTOP-0OGI8LM","message":"Email already exists","statusCode":400,"data":null}
+{"level":50,"time":1762437772600,"pid":788,"hostname":"DESKTOP-0OGI8LM","message":"Unauthorized: Invalid token","statusCode":401,"data":null}
+{"level":50,"time":1762438215714,"pid":12216,"hostname":"DESKTOP-0OGI8LM","message":"Unauthorized: Invalid token","statusCode":401,"data":null}
+{"level":50,"time":1762438543021,"pid":12216,"hostname":"DESKTOP-0OGI8LM","message":"Invalid Email or Password","statusCode":401,"data":null}
+{"level":50,"time":1762440206919,"pid":20952,"hostname":"DESKTOP-0OGI8LM","message":"C:\\Users\\victor\\Desktop\\event management and registration system\\src\\Templates\\Emails\\userRegistration.ejs:3\n    1| <html>\r\n    2|   <body>\r\n >> 3|     <h1>Welcome, <%= userName %>!</h1>\r\n    4|     <p>Thank you for registering for our event management system.</p>\r\n    5|   </body>\r\n    6| </html>\r\n\nuserName is not defined","statusCode":400,"data":null}
+{"level":50,"time":1762440415226,"pid":23436,"hostname":"DESKTOP-0OGI8LM","message":"Email already exists","statusCode":400,"data":null}
+{"level":50,"time":1762441118003,"pid":9488,"hostname":"DESKTOP-0OGI8LM","message":"C:\\Users\\victor\\Desktop\\event management and registration system\\src\\Templates\\Emails\\userRegistration.ejs:3\n    1| <html>\r\n    2|   <body>\r\n >> 3|     <h1>Welcome, <%= userName %>!</h1>\r\n    4|     <p>Thank you for registering for our event management system.</p>\r\n    5|   </body>\r\n    6| </html>\r\n\nuserName is not defined","statusCode":400,"data":null}
+{"level":50,"time":1762441257928,"pid":23148,"hostname":"DESKTOP-0OGI8LM","message":"Email already exists","statusCode":400,"data":null}
+{"level":50,"time":1762444105190,"pid":22152,"hostname":"DESKTOP-0OGI8LM","message":"notNull Violation: Event.organizer_id cannot be null","statusCode":400,"data":null}
+{"level":50,"time":1762444277937,"pid":20876,"hostname":"DESKTOP-0OGI8LM","message":"notNull Violation: Event.organizer_id cannot be null","statusCode":400,"data":null}
+{"level":50,"time":1762444295873,"pid":13608,"hostname":"DESKTOP-0OGI8LM","message":"notNull Violation: Event.organizer_id cannot be null","statusCode":400,"data":null}
+{"level":50,"time":1762444830625,"pid":20956,"hostname":"DESKTOP-0OGI8LM","message":"Unknown column 'date' in 'field list'","statusCode":400,"data":null}
+{"level":50,"time":1762445286291,"pid":24212,"hostname":"DESKTOP-0OGI8LM","message":"Unknown column 'status' in 'field list'","statusCode":400,"data":null}
+{"level":50,"time":1762445436957,"pid":24212,"hostname":"DESKTOP-0OGI8LM","message":"Unknown column 'organizer_id' in 'field list'","statusCode":400,"data":null}
+{"level":50,"time":1762445590232,"pid":24212,"hostname":"DESKTOP-0OGI8LM","message":"Field 'organizer_uuid' doesn't have a default value","statusCode":400,"data":null}
+{"level":50,"time":1762445959821,"pid":24212,"hostname":"DESKTOP-0OGI8LM","message":"Invalid Email or Password","statusCode":401,"data":null}
+{"level":50,"time":1762543872125,"pid":2912,"hostname":"DESKTOP-0OGI8LM","message":"Data truncated for column 'role' at row 1","statusCode":400,"data":null}
+{"level":50,"time":1762543884062,"pid":2912,"hostname":"DESKTOP-0OGI8LM","message":"Invalid Email or Password","statusCode":401,"data":null}
+{"level":50,"time":1762543894225,"pid":2912,"hostname":"DESKTOP-0OGI8LM","message":"Unauthorized: Invalid token","statusCode":401,"data":null}

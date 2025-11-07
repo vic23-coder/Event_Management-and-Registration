@@ -43,6 +43,11 @@ async function logUserIntoApp(loginCredentials) {
   model: User
 });
 
+//  ADD THIS CHECK
+  if (!user) {
+    throw new Error("Invalid Email or Password");
+  }
+
   const isPasswordValid = await user.verifyPassword(loginCredentials.password);
   if (!isPasswordValid) throw new Error("Invalid Email or Password");
 

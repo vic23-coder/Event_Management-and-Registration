@@ -11,7 +11,19 @@ import {
 export async function createNewEvent(req, res, next) {
   try {
     const { name, date, location, description } = req.body;
-  const createdEvent = await createEvent({ name, date, location, description });
+    
+    // ADD THIS LINE - get the organizer_id from the authenticated user
+    const organizer_id = req.user.id; // or req.user.uuid depending on your token structure
+    
+    // CHANGE THIS LINE - pass organizer_id to the service
+    const createdEvent = await createEvent({ 
+      name, 
+      date, 
+      location, 
+      description, 
+      organizer_id 
+    });
+    
     res.status(201).json({
       success: true,
       message: "Event created successfully",

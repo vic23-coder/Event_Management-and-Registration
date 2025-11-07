@@ -4,8 +4,12 @@ async function roleMiddleware(req, res, next) {
       return res.status(403).json({ success: false, message: "Forbidden" });
     }
 
-    if (req.user.role !== "admin") {
-      return res.status(403).json({ success: false, message: "Forbidden" });
+    // Allow both admin and organizer roles instead of just admin
+    if (!["admin", "organizer"].includes(req.user.role)) {
+      return res.status(403).json({ 
+        success: false, 
+        message: `Forbidden: Role '${req.user.role}' not allowed. Required: admin or organizer` 
+      });
     }
 
     next();

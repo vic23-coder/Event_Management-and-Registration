@@ -10,7 +10,7 @@ import emailService from "../services/emailService.js";
 //  USER REGISTRATION
 export async function registerUser(req, res, next) {
   try {
-    const { username, email, password, phoneNumber, role = "attendee" } = req.body;
+    const { username, email, password, phoneNumber, role = "user" } = req.body;
 
     const newUser = await registerUserService({
       username,

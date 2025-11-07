@@ -8,13 +8,13 @@ import config from "../config/index.js";
 async function generateToken(user) {
   try {
     const payload = {
-      user_uuid: user.user_uuid,
+      id: user.user_uuid,
       username: user.username,
       role: user.role,
     };
 
     return jwt.sign(payload, config.JWT_SECRET, {
-      expiresIn: "2h",
+      expiresIn: `${config.JWT_EXPIRES_IN}s`, // Add 's' for seconds
     });
   } catch (error) {
     throw new Error("Error generating access token");
