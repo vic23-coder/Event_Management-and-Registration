@@ -38,12 +38,10 @@ async function createUser(userData) {
 
 async function logUserIntoApp(loginCredentials) {
   const user = await User.findOne({ 
-  where: { email: loginCredentials.email },
-  mapToModel: true, // ensures it returns a Sequelize instance
-  model: User
+  where: { email: loginCredentials.email }
 });
 
-//  ADD THIS CHECK
+
   if (!user) {
     throw new Error("Invalid Email or Password");
   }

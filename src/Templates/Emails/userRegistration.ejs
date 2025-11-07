@@ -1,6 +1,6 @@
 <html>
   <body>
-    <h1>Welcome, <%= userName %>!</h1>
+    <h1>Welcome<% if (typeof userName !== 'undefined') { %>, <%= userName %><% } %>!</h1>
     <p>Thank you for registering for our event management system.</p>
   </body>
 </html>

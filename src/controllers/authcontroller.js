@@ -21,7 +21,7 @@ export async function registerUser(req, res, next) {
     });
 
     // Send welcome email after registration
-    await emailService.sendWelcomeEmail(email, username);
+    //await emailService.sendWelcomeEmail(email, username); // This is correct - the issue is in userService
 
     res.status(201).json({
       success: true,
