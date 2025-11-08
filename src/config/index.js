@@ -7,7 +7,7 @@ export default {
   PORT: Number(process.env.PORT) || 3000,
   DATABASE_NAME: process.env.DATABASE_NAME || "event_management_system",
   DATABASE_USERNAME: process.env.DATABASE_USERNAME || "postgres",
-  DATABASE_PASSWORD: process.env.DATABASE_PASSWORD || "victor23",
+  DATABASE_PASSWORD: process.env.DATABASE_PASSWORD,
   DATABASE_HOST: process.env.DATABASE_HOST || "localhost",
   DATABASE_PORT: Number(process.env.DATABASE_PORT) || 5432,
   DATABASE_DIALECT: process.env.DATABASE_DIALECT || "postgres",

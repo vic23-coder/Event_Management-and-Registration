@@ -41,6 +41,12 @@ app.use((req, res, next) => {
 app.use(errorHandler);
 
 
+if (!config.DATABASE_PASSWORD || !config.JWT_SECRET) {
+  console.error("❌ Missing required environment variables!");
+  process.exit(1);
+}
+
+
 
 // Start the server - sync models in correct dependency order
 const startServer = async () => {
