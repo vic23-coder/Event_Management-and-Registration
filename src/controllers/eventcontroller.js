@@ -10,17 +10,20 @@ import {
 
 export async function createNewEvent(req, res, next) {
   try {
-    const { name, date, location, description } = req.body;
+    const { title, date, location, description, capacity, category } = req.body;
     
-    // ADD THIS LINE - get the organizer_id from the authenticated user
-    const organizer_id = req.user.id; // or req.user.uuid depending on your token structure
+    // Change from req.user.id to req.user.user_uuid
+    const organizer_id = req.user.user_uuid; // ← THIS IS THE FIX
     
-    // CHANGE THIS LINE - pass organizer_id to the service
+    console.log("🔧 organizer_id:", organizer_id); // Debug line
+    
     const createdEvent = await createEvent({ 
-      name, 
+      name: title,  // Service expects 'name', you send 'title'
       date, 
       location, 
-      description, 
+      description,
+      capacity,
+      category,
       organizer_id 
     });
     

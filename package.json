@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/app.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "type": "module",
   "scripts": {
     "start": "node src/app.js",
@@ -22,8 +25,8 @@
     "express-validator": "^7.2.1",
     "ioredis": "^5.8.2",
     "jsonwebtoken": "^9.0.2",
-    "mysql2": "^3.15.2",
     "nodemailer": "^7.0.9",
+    "pg": "^8.16.3",
     "pino": "^10.1.0",
     "pino-roll": "^4.0.0",
     "redis": "^5.8.3",

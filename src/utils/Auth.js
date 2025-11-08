@@ -8,7 +8,7 @@ import config from "../config/index.js";
 async function generateToken(user) {
   try {
     const payload = {
-      id: user.user_uuid,
+      user_uuid: user.user_uuid,
       username: user.username,
       role: user.role,
     };

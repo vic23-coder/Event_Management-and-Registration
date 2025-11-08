@@ -19,6 +19,7 @@ import {
   cancelEvent,
   registerUserForEvent,
 } from "../controllers/eventcontroller.js";
+import roleMiddleware from "../middlewares/roleMiddleware.js";
 
 const router = express.Router();
 
@@ -44,8 +45,10 @@ router.get("/profile", authMiddleware, userProfile);
 // EVENT MANAGEMENT ROUTES
 //
 
-// Create a new event (only logged-in users)
-router.post("/events", authMiddleware, createNewEvent);
+
+
+// Create a new event (admin or event organizer only)
+router.post("/events", authMiddleware, roleMiddleware, createNewEvent);
 
 // Get all available events
 router.get("/events", getAllEvents);

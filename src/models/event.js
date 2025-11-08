@@ -44,7 +44,7 @@ const Event = sequelize.define("Event", {
         type: DataTypes.UUID,
         allowNull: false,
         references: {
-            model: "Users",
+            model: "users",
             key: "user_uuid",
         },
         onUpdate: "CASCADE",

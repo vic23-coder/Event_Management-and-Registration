@@ -69,3 +69,19 @@
 {"level":50,"time":1762548088334,"pid":6960,"hostname":"DESKTOP-0OGI8LM","message":"Invalid Email or Password","statusCode":401,"data":null}
 {"level":50,"time":1762548813636,"pid":6960,"hostname":"DESKTOP-0OGI8LM","message":"Invalid Email or Password","statusCode":401,"data":null}
 {"level":50,"time":1762548901145,"pid":1420,"hostname":"DESKTOP-0OGI8LM","message":"Invalid Email or Password","statusCode":401,"data":null}
+{"level":50,"time":1762606519108,"pid":22200,"hostname":"DESKTOP-0OGI8LM","message":"user_uuid and event_uuid are required","statusCode":400,"data":null}
+{"level":50,"time":1762606619675,"pid":22200,"hostname":"DESKTOP-0OGI8LM","message":"user_uuid and event_uuid are required","statusCode":400,"data":null}
+{"level":50,"time":1762606920249,"pid":22200,"hostname":"DESKTOP-0OGI8LM","message":"Missing required event fields","statusCode":400,"data":null}
+{"level":50,"time":1762607362977,"pid":22200,"hostname":"DESKTOP-0OGI8LM","message":"Unauthorized: Invalid token","statusCode":401,"data":null}
+{"level":50,"time":1762607540657,"pid":7124,"hostname":"DESKTOP-0OGI8LM","message":"Unauthorized: Invalid token","statusCode":401,"data":null}
+{"level":50,"time":1762607674722,"pid":7124,"hostname":"DESKTOP-0OGI8LM","message":"insert or update on table \"registrations\" violates foreign key constraint \"registrations_event_uuid_fkey\"","statusCode":400,"data":null}
+{"level":50,"time":1762607694884,"pid":7124,"hostname":"DESKTOP-0OGI8LM","message":"insert or update on table \"events\" violates foreign key constraint \"events_organizer_id_fkey\"","statusCode":400,"data":null}
+{"level":50,"time":1762607915854,"pid":21808,"hostname":"DESKTOP-0OGI8LM","message":"insert or update on table \"events\" violates foreign key constraint \"events_organizer_id_fkey\"","statusCode":400,"data":null}
+{"level":50,"time":1762607924202,"pid":21808,"hostname":"DESKTOP-0OGI8LM","message":"insert or update on table \"events\" violates foreign key constraint \"events_organizer_id_fkey\"","statusCode":400,"data":null}
+{"level":50,"time":1762607969250,"pid":21808,"hostname":"DESKTOP-0OGI8LM","message":"Invalid Email or Password","statusCode":401,"data":null}
+{"level":50,"time":1762608332436,"pid":21808,"hostname":"DESKTOP-0OGI8LM","message":"insert or update on table \"events\" violates foreign key constraint \"events_organizer_id_fkey\"","statusCode":400,"data":null}
+{"level":50,"time":1762608423122,"pid":21808,"hostname":"DESKTOP-0OGI8LM","message":"notNull Violation: Event.organizer_id cannot be null","statusCode":400,"data":null}
+{"level":50,"time":1762608706168,"pid":16848,"hostname":"DESKTOP-0OGI8LM","message":"notNull Violation: Event.organizer_id cannot be null","statusCode":400,"data":null}
+{"level":50,"time":1762608814810,"pid":16848,"hostname":"DESKTOP-0OGI8LM","message":"Missing required event fields","statusCode":400,"data":null}
+{"level":50,"time":1762609066289,"pid":10392,"hostname":"DESKTOP-0OGI8LM","message":"insert or update on table \"events\" violates foreign key constraint \"events_organizer_id_fkey\"","statusCode":400,"data":null}
+{"level":50,"time":1762609314678,"pid":10392,"hostname":"DESKTOP-0OGI8LM","message":"insert or update on table \"registrations\" violates foreign key constraint \"registrations_user_uuid_fkey\"","statusCode":400,"data":null}

@@ -1,0 +1,16 @@
+# Event Management & Registration System
+
+## Quick Start
+1. Clone repository
+2. Run `npm install`
+3. Copy `.env.example` to `.env` and configure
+4. Run `npm run dev`
+
+## API Endpoints
+- Health: `GET /api/health`
+- Auth: `POST /api/auth/register`, `POST /api/auth/login`
+- Events: `GET/POST /api/events`
+- Registration: `GET/POST /api/registrations`
+
+## Environment Variables
+See `.env.example` for required configuration.

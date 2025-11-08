@@ -12,7 +12,7 @@ const Registration = sequelize.define("Registration", {
         type: DataTypes.UUID,
         allowNull: false,
         references: {
-            model: "Users",
+            model: "users",
             key: "user_uuid",
         },
         onUpdate: "CASCADE",
@@ -22,7 +22,7 @@ const Registration = sequelize.define("Registration", {
         type: DataTypes.UUID,
         allowNull: false,
         references: {
-            model: "Events",
+            model: "events",
             key: "event_uuid",
         },
         onUpdate: "CASCADE",
