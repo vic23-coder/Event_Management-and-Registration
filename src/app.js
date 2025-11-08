@@ -8,6 +8,7 @@ import errorHandler from "./middlewares/errorHandler.js";
 import authRoutes from "./routes/auth.js";
 import eventRoutes from "./routes/eventRoutes.js";
 import registrationRoutes from "./routes/registrationRoutes.js";
+import cors from 'cors'
 
 // Initialize Express app
 const app = express();
@@ -15,6 +16,11 @@ const app = express();
 // Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use(cors({
+  origin: process.env.FRONTEND_URL || '*',
+  credentials: true
+}));
 
 // Health check route (to test server)
 app.get("/api/health", (req, res) => {
@@ -34,6 +40,8 @@ app.use((req, res, next) => {
 // Error handler middleware
 app.use(errorHandler);
 
+
+
 // Start the server - sync models in correct dependency order
 const startServer = async () => {
   try {
@@ -51,19 +59,12 @@ const startServer = async () => {
     
     // IMPORTANT: Sync models in dependency order to avoid foreign key errors
     // 1. User table first (no foreign key dependencies)
-    console.log("🔄 Creating Users table...");
-    await User.sync({ force: true });
-    console.log("✅ Users table created successfully");
-    
-    // 2. Event table second (depends on Users table via organizer_id foreign key)
-    console.log("🔄 Creating Events table...");
-    await Event.sync({ force: true });
-    console.log("✅ Events table created successfully");
-    
-    // 3. Registration table last (depends on both Users and Events tables)
-    console.log("🔄 Creating Registrations table...");
-    await Registration.sync({ force: true });
-    console.log("✅ Registrations table created successfully");
+
+const isProduction = config.ENVIRONMENT === 'production';
+console.log(`🔄 Syncing models (production: ${isProduction})...`);
+await User.sync({ force: !isProduction, alter: isProduction });
+await Event.sync({ force: !isProduction, alter: isProduction });  
+await Registration.sync({ force: !isProduction, alter: isProduction });
     
     console.log("✅ All models synchronized with the database!");
     

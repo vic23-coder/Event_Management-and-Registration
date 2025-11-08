@@ -11,6 +11,8 @@ export default {
   DATABASE_HOST: process.env.DATABASE_HOST || "localhost",
   DATABASE_PORT: Number(process.env.DATABASE_PORT) || 5432,
   DATABASE_DIALECT: process.env.DATABASE_DIALECT || "postgres",
+  DATABASE_URL: process.env.DATABASE_URL || null,
+
   SMTP_HOST: process.env.SMTP_HOST || "smtp.gmail.com",
   SMTP_PORT: Number(process.env.SMTP_PORT) || 587,
   SMTP_USER: process.env.SMTP_USER || "your-actual-email@gmail.com",
