@@ -27,10 +27,7 @@ const sequelize = config.DATABASE_URL
         dialect: config.DATABASE_DIALECT,
         logging: false,
         dialectOptions: {
-          ssl: config.ENVIRONMENT === 'production' ? {
-            require: true,
-            rejectUnauthorized: false // This is important for Render
-          } : false
+          ssl: false
         },
         define: {
           timestamps: true, 

@@ -47,3 +47,5 @@
 {"level":50,"time":1762550499315,"pid":1420,"hostname":"DESKTOP-0OGI8LM","message":"Unauthorized: No token provided","statusCode":401,"data":null}
 {"level":50,"time":1762550675899,"pid":1420,"hostname":"DESKTOP-0OGI8LM","message":"Cannot add or update a child row: a foreign key constraint fails (`event_management_system`.`registrations`, CONSTRAINT `registrations_ibfk_1` FOREIGN KEY (`user_uuid`) REFERENCES `users` (`user_uuid`) ON DELETE CASCADE ON UPDATE CASCADE)","statusCode":400,"data":null}
 {"level":50,"time":1762550941183,"pid":1420,"hostname":"DESKTOP-0OGI8LM","message":"WHERE parameter \"user_uuid\" has invalid \"undefined\" value","statusCode":400,"data":null}
+{"level":50,"time":1762808791698,"pid":20248,"hostname":"DESKTOP-0OGI8LM","message":"Invalid Email or Password","statusCode":401,"data":null}
+{"level":50,"time":1762809117203,"pid":20248,"hostname":"DESKTOP-0OGI8LM","message":"Invalid Email or Password","statusCode":401,"data":null}
