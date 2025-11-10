@@ -1,11 +1,17 @@
 import { Sequelize } from "sequelize";
 import config from "./index.js";
 
-// NEW: Support both DATABASE_URL and individual parameters
+// NEW: Support both DATABASE_URL and individual parameters with SSL
 const sequelize = config.DATABASE_URL 
   ? new Sequelize(config.DATABASE_URL, {
       dialect: 'postgres',
       logging: config.ENVIRONMENT !== 'production' ? console.log : false,
+      dialectOptions: {
+        ssl: config.ENVIRONMENT === 'production' ? {
+          require: true,
+          rejectUnauthorized: false // This is important for Render
+        } : false
+      },
       define: {
         timestamps: true, 
         underscored: true, 
@@ -20,6 +26,12 @@ const sequelize = config.DATABASE_URL
         port: config.DATABASE_PORT,
         dialect: config.DATABASE_DIALECT,
         logging: false,
+        dialectOptions: {
+          ssl: config.ENVIRONMENT === 'production' ? {
+            require: true,
+            rejectUnauthorized: false // This is important for Render
+          } : false
+        },
         define: {
           timestamps: true, 
           underscored: true, 
