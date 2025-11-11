@@ -42,7 +42,7 @@ app.use(errorHandler);
 
 
 if (!config.DATABASE_PASSWORD || !config.JWT_SECRET) {
-  console.error("❌ Missing required environment variables!");
+  console.error("Missing required environment variables!");
   process.exit(1);
 }
 
@@ -51,13 +51,13 @@ if (!config.DATABASE_PASSWORD || !config.JWT_SECRET) {
 // Start the server - sync models in correct dependency order
 const startServer = async () => {
   try {
-    console.log("🚀 Starting Event Management Server...");
+    console.log("Starting Event Management Server...");
     
     // Connect to database first
     await connectDB();
     
     // Log that models are loaded
-    console.log("📋 Models loaded:", { 
+    console.log("Models loaded:", { 
       User: User.name, 
       Event: Event.name, 
       Registration: Registration.name 
@@ -67,26 +67,26 @@ const startServer = async () => {
     // 1. User table first (no foreign key dependencies)
 
 const isProduction = config.ENVIRONMENT === 'production';
-console.log(`🔄 Syncing models (production: ${isProduction})...`);
+console.log(`Syncing models (production: ${isProduction})...`);
 await User.sync({ force: !isProduction, alter: isProduction });
 await Event.sync({ force: !isProduction, alter: isProduction });  
 await Registration.sync({ force: !isProduction, alter: isProduction });
     
-    console.log("✅ All models synchronized with the database!");
+    console.log("All models synchronized with the database!");
     
     // Start the Express server
     app.listen(config.PORT, () => {
-      console.log(`🌟 Server is running on port ${config.PORT}`);
-      console.log(`🏥 Health check: http://localhost:${config.PORT}/api/health`);
-      console.log(`📚 API endpoints:`);
+      console.log(`Server is running on port ${config.PORT}`);
+      console.log(`Health check: http://localhost:${config.PORT}/api/health`);
+      console.log(`API endpoints:`);
       console.log(`   - Auth: http://localhost:${config.PORT}/api/auth`);
       console.log(`   - Events: http://localhost:${config.PORT}/api/events`);
       console.log(`   - Registrations: http://localhost:${config.PORT}/api/registrations`);
     });
     
   } catch (error) {
-    console.error("❌ Failed to start server:", error.message);
-    console.error("📋 Full error details:", error);
+    console.error("Failed to start server:", error.message);
+    console.error("Full error details:", error);
     process.exit(1);
   }
 };
